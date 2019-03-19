@@ -72,6 +72,7 @@ class Util:
         s -= m * 60
         return '%dm %ds' % (m, s)
 
+
 class RNN(nn.Module):
     def __init__(self, input_size, hidden_size, output_size, n_layers=3):
         super(RNN, self).__init__()
