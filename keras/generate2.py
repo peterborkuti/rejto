@@ -68,16 +68,16 @@ class Data:
             self.dataX = dataX
             self.n_vocab = n_vocab
 
-        def get_random_int_data(self):
-            start = numpy.random.randint(0, len(self.dataX)-1)
+    def get_random_int_data(self):
+        start = numpy.random.randint(0, len(self.dataX)-1)
 
-            return self.dataX[start]
+        return self.dataX[start]
 
-        def str_to_intarr(self, data):
-            return [self.char_to_int[char] for char in data]
+    def str_to_intarr(self, data):
+        return [self.char_to_int[char] for char in data]
 
-        def ints_to_str(self, data):
-            return ''.join([self.int_to_char[value] for value in data])
+    def ints_to_str(self, data):
+        return ''.join([self.int_to_char[value] for value in data])
 
 
 # define the LSTM model
@@ -154,7 +154,7 @@ class Trainer:
         self.data = Data()
         self.rnn = RNN(self.data.X.shape, self.data.y.shape)
 
-    def on_epoch_end(self):
+    def on_epoch_end(self, epoch, loss):
         print(self.rnn.generate(self.data))
 
     def train(self):
